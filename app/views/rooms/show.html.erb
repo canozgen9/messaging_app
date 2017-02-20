@@ -1,6 +1,44 @@
-<h1>Action Cable Chat</h1>
-<%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-<div id="messages">
-  <%= render @messages %>
+<div class="container">
+<div class="row">
+  <div class="col-md-3 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+            <h3>Rooms</h3>
+      </div>
+      <div class="panel-body">
+        <h5><a href="#">Room 1</a></h5>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+            <h3>Users</h3>
+      </div>
+      <div class="panel-body" id="users">
+          <% @users.each do |user| %>
+            <div class="panel-body">
+              <a href="#"><%= user.email %> </a>
+            </div>
+          <% end %>
+      </div>
+    </div>
 </div>
- <input type="text" class="input-box_text" id="message_input"/>
+  <div class="col-md-9 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+            <h3>Room 1</h3>
+      </div>
+      <div class="panel-body" id="messages">
+            <%= render @messages %>
+      </div>
+      <hr>
+      <div class="form-group panel-body">
+          <label>Enter to send :</label>
+          <textarea id="message_input" placeholder="Your message..." class="form-control" style="resize: vertical"> </textarea>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="row" style="min-height:100px;">
+</div>
+</div>

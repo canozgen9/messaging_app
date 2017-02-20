@@ -1,5 +1,5 @@
-<div class="message">
-  <a href="#"><%= message.user.email %></a>
-  <i><%= message.created_at %></i>
-  <p><%= message.content %></p>
+<div class="panel panel-default" style="border-left:3px solid #212121">
+  <div class="panel-body">
+    <p><b style="color: #212121"><%= message.user.email %>: </b><%= message.content %></p>
+  </div>
 </div>
