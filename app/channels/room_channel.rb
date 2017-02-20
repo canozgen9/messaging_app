@@ -1,10 +1,11 @@
 class RoomChannel < ApplicationCable::Channel
   def subscribed
     stream_from "room_channel"
+    ActionCable.server.broadcast 'room_channel', '<div class="alert alert-info"><b>'+current_user.email+'</b> connected.</div>'
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+    ActionCable.server.broadcast 'room_channel', '<div class="alert alert-danger"><b>'+current_user.email+'</b> disconnected.</div>'
   end
 
   def speak(data)
